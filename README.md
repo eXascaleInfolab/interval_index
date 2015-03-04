@@ -41,7 +41,7 @@ mkdir libs;  cp `hadoop classpath |  sed  "s/:/jar /g"` libs/
 
 &lt;some directory in HDFS&gt; - some path in the HDFS cluster (hdfs://&lt;smth&gt;) where all source files and indices will be saved.
 
-It is better to run it from a machine which has a wired connection to the cluster, or even a cluster machine,. Otherwise an index construction might take a lot of time. 
+It is better to run it from a machine which has a wired connection to the cluster, or even a cluster machine. Otherwise a data transfer to the cluster might take a lot of time. 
 
 If everything was fine, the program will generate datasets, then indices (for CIntIA and Spatial Hadoop), 
 and after that run query tests for CIntIA, Spatial Hadoop and Map Reduce. 
