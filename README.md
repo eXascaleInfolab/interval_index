@@ -7,19 +7,18 @@ The main contribution is in two files:
 
 Those are in-memory (C++) and HDFS implementation of CIntIA (Checkpint Interval Index Array).
 
-Everything around it was create to test the indices and compare them to other solutions.
+Everything around it is to test the index and compare it to other solutions.
 
 To use/test it, one can do the following:
 
-1) for in-memory C++ tests you need a g++-4.8 (almost certainly you have it). 
-Just run the script in the root folder:
+1) Run the script in the root folder:
 
 sh build_and_run_inmemory.sh
 
-It will build a binary and create synthetic datasets for tests. 
+It builds a binary and creates synthetic datasets for tests. 
 Then it will compare CIntIA with R-tree, Interval Tree, Segment Tree and NClist.
 
-All results will be in a folder 'tests_results'.
+All results will be in the folder 'tests_results'.
 
 2) for HDFS implementation you need a Hadoop cluster with Spatial Hadoop 2.2 libraries on every cluster 
 machine in any one directory that is in the list "hadoop classpath". 
