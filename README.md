@@ -4,6 +4,7 @@ CINTIA
 The main contribution is in two files:
 - src/interval_index/interval_index.hpp
 - src/hadoop/dfs_interval_index/src/dfs_interval_index/TDFSIntervaIndex.java 
+
 Those are in-memory (C++) and HDFS implementation of CIntIA (Checkpint Interval Index Array).
 
 Everything around it was create to test the indices and compare them to other solutions.
