@@ -1,4 +1,4 @@
-interval_index
+CINTIA
 ==============
 
 The main contribution is in two files:
