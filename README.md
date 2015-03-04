@@ -1,8 +1,6 @@
 interval_index
 ==============
 
-The work on the project is definitely not finished, so you may find the distribution to be quite cluttered. 
-
 The main contribution is in two files:
 - src/interval_index/interval_index.hpp
 - src/hadoop/dfs_interval_index/src/dfs_interval_index/TDFSIntervaIndex.java 
@@ -10,17 +8,17 @@ Those are in-memory (C++) and HDFS implementation of CIntIA (Checkpint Interval 
 
 Everything around it was create to test the indices and compare them to other solutions.
 
-But if you want to use it, you can do the following:
+To use/test it, one can do the following:
 
 1) for in-memory C++ tests you need a g++-4.8 (almost certainly you have it). 
 Just run the script in the root folder:
 
 sh build_and_run_inmemory.sh
 
-It will build a binary for tests, create datasets for testing the data structure performance under different 
-query lengths, and start experiments. It will compare CIntIA with R-tree, Interval Tree, Segment Tree and NClist.
+It will build a binary and create synthetic datasets for tests. 
+Then it will compare CIntIA with R-tree, Interval Tree, Segment Tree and NClist.
 
-All results will be in a folder called 'tests_results'.
+All results will be in a folder 'tests_results'.
 
 2) for HDFS implementation you need a Hadoop cluster with Spatial Hadoop 2.2 libraries on every cluster 
 machine in any one directory that is in the list "hadoop classpath". 
@@ -33,7 +31,7 @@ You can run it in this way:
 java -classpath &lt;hadoop_libs&gt;*:&lt;spatial_hadoop_libs&gt;*:dfs_interval_index.jar  dfs_interval_index.TTests &lt;path with hadoop configs&gt; &lt;some directory in HDFS&gt; 
 
 where:
-&lt;hadoop_libs&gt; - path with hadoop jars, I recommend to do smth like this: 
+&lt;hadoop_libs&gt; - path with hadoop jars, We recommend to do smth like this: 
 
 mkdir libs;  cp `hadoop classpath |  sed  "s/:/jar /g"` libs/
 
@@ -41,15 +39,13 @@ mkdir libs;  cp `hadoop classpath |  sed  "s/:/jar /g"` libs/
 
 &lt;path with hadoop configs&gt; - path where you keep your core-site.xml, hdfs-site.xml, mapred-site.xml and yarn-site.xml
 
-&lt;some directory in HDFS&gt; - some path in you HDFS (hdfs://&lt;bla-bla&gt;) where will be saved all source files and indices.
+&lt;some directory in HDFS&gt; - some path in the HDFS cluster (hdfs://&lt;smth&gt;) where all source files and indices will be saved.
 
-You better run this from a machine which has a wired connection to the cluster, or even a cluster machine, 
-since otherwise the index construction might take a lot of time. 
+It is better to run it from a machine which has a wired connection to the cluster, or even a cluster machine,. Otherwise an index construction might take a lot of time. 
 
 If everything was fine, the program will generate datasets, then indices (for CIntIA and Spatial Hadoop), 
 and after that run query tests for CIntIA, Spatial Hadoop and Map Reduce. 
 
-Further details soon.
 
 
 
